@@ -7,7 +7,7 @@ export default defineConfig({
   manifestVersion: 3,
   modules: ['@wxt-dev/module-react'],
   manifest: {
-    name: '言葉 の Tab',
+    name: 'Tab of Words',
     description: 'A minimal Chrome / Firefox extension to help you learn Japanese words in each new tab.',
     version: '2.0.0',
     chrome_url_overrides: {
