@@ -40,9 +40,9 @@ export default function App() {
         <FadeContainer show={view === 'home'}>
           <Home />
         </FadeContainer>
-        <FadeContainer show={view === 'settings'} key={view}>
-          <Settings />
-        </FadeContainer>
+      </FadeContainer>
+      <FadeContainer show={view === 'settings'} key={view}>
+        <Settings />
       </FadeContainer>
     </>
   );

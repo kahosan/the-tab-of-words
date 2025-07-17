@@ -188,15 +188,12 @@ export function Theme() {
     if (e.target.checked) {
       const theme = e.target.value as Theme;
       setTheme(theme);
+
+      const root = window.document.documentElement;
+      root.classList.remove('sunset', 'sunrise', 'moon');
+      root.classList.add(theme);
     }
   };
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-
-    root.classList.remove('sunset', 'sunrise', 'moon');
-    root.classList.add(theme);
-  }, [theme]);
 
   return (
     <FormSection title="Theme">

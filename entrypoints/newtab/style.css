@@ -180,7 +180,7 @@
 body {
   @apply h-screen w-screen overflow-hidden antialiased;
   font-size: 100%;
-  transition: background-color .3s, color .3s;
+  /* transition: background-color .3s, color .3s; */
 }
 
 @layer utilities {
