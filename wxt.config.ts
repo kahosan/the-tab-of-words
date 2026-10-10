@@ -8,7 +8,7 @@ export default defineConfig({
   manifest: {
     name: 'Tab of Words',
     description: 'A minimal Chrome / Firefox extension to help you learn Japanese words in each new tab.',
-    version: '2.0.0',
+    version: '2.0.1',
     chrome_url_overrides: {
       newtab: 'newtab.html'
     },
