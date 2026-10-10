@@ -1,3 +1,6 @@
+import { useSetAtom } from 'jotai';
+import { wordsAtom } from './use-data';
+import { useEffect } from 'foxact/use-abortable-effect';
 import useSWRImmutable from 'swr/immutable';
 
 import fetcher from '../lib/fetcher';
@@ -28,26 +31,37 @@ export function getAudioUrl(content: string) {
 
 export function useFetchWords() {
   const api = `${API_ENDPOINT}/words/all`;
+  const setWords = useSetAtom(wordsAtom);
+  const [error, setError] = useState<unknown>();
   const [data, setData] = useState<Word[] | null>(null);
-  const [error, setError] = useState();
-  const cacheRef = useRef<Cache | null>(null);
 
-  useEffect(() => {
-    const getData = async () => {
-      cacheRef.current = await caches.open('tab-of-words');
-      let res: Response | undefined;
-      res = await cacheRef.current.match(api);
-      if (res) {
-        setData(await res.json());
-        return;
-      }
+  useEffect(
+    signal => {
+      const getData = async () => {
+        const cache = await caches.open('tab-of-words');
+        let res = await cache.match(api);
 
-      await cacheRef.current.add(api);
-      res = await cacheRef.current.match(api);
-      if (res) setData(await res.json());
-    };
-    getData().catch(e => setError(e));
-  }, [api]);
+        if (!res) {
+          const fetched = await fetch(api, { signal });
+          if (!fetched.ok) throw new Error(`Request failed: ${fetched.status}`);
+          await cache.put(api, fetched.clone());
+          res = fetched;
+        }
+
+        const words: Word[] = await res.json();
+        if (signal.aborted) return;
+
+        setData(words);
+        setWords(words);
+      };
+
+      getData().catch(e => {
+        if (signal.aborted) return;
+        setError(e);
+      });
+    },
+    [api, setWords]
+  );
 
   return { data, error };
 }

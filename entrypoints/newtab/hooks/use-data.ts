@@ -1,3 +1,5 @@
+/* eslint-disable import-x/no-duplicates -- ... */
+
 import { atom, useAtomValue, useSetAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 
@@ -55,11 +57,15 @@ export function useRandomWord() {
   const mode = useAtomValue(modeAtom);
   const setMet = useSetAtom(metAtom);
 
-  const randomWord = rest.at(Math.floor(Math.random() * rest.length)) ?? null;
+  const [seed, setSeed] = useState(() => Math.random());
+
+  const randomWord = rest.at(Math.floor(seed * rest.length)) ?? null;
 
   function next() {
     if (mode === 'ichigoichie' && randomWord)
       setMet(p => [randomWord.word, ...p]);
+
+    setSeed(Math.random());
   }
 
   return { randomWord, next };

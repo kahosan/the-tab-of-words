@@ -12,7 +12,7 @@ export default function Checkbox({ checked, onChange }: CheckboxProps) {
         checked={checked}
         type="checkbox"
         className="peer h-full w-full cursor-pointer appearance-none rounded border-2"
-        onChange={e => onChange && onChange(e.target.checked)}
+        onChange={e => onChange?.(e.target.checked)}
       />
       <CheckIcon className="absolute-center invisible h-5 w-5 cursor-pointer peer-checked:visible" />
     </label>

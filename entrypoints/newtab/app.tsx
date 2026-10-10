@@ -1,6 +1,4 @@
-import { useSetAtom } from 'jotai';
 import { useView } from './hooks/use-view';
-import { wordsAtom } from './hooks/use-data';
 import { useFetchWords } from './hooks/use-vocab';
 
 import Header from './components/header';
@@ -11,15 +9,9 @@ import FadeContainer from './components/container/fade';
 
 export default function App() {
   const [view] = useView();
-  const setWords = useSetAtom(wordsAtom);
-
   const { data, error } = useFetchWords();
 
   const loading = !data && !error;
-
-  useEffect(() => {
-    if (data) setWords(data);
-  }, [data, setWords]);
 
   return (
     <>

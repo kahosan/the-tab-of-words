@@ -1,5 +1,4 @@
 import { defineConfig } from 'wxt';
-import type { WxtViteConfig } from 'wxt';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -21,5 +20,5 @@ export default defineConfig({
   },
   vite: () => ({
     plugins: [tailwindcss()]
-  }) as WxtViteConfig
+  })
 });

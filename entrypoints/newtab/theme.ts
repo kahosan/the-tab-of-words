@@ -1,3 +1,4 @@
+// eslint-disable-next-line vibe-proof/react-prefer-foxact-persistent -- ig
 const theme = JSON.parse(localStorage.getItem('tab-of-words-theme') ?? '"sunrise"');
 const root = window.document.documentElement;
 

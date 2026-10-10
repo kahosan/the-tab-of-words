@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '../../lib/utils';
-import type { ComponentProps } from 'react';
+import type React from 'react';
 
 const sizes = {
   default: 'size-6',
@@ -10,7 +10,7 @@ const sizes = {
   lg: 'size-9'
 };
 
-type IconButtonProps = ComponentProps<'button' | 'a'> & {
+type IconButtonProps = React.ComponentProps<'button' | 'a'> & {
   icon: React.ElementType<React.RefAttributes<SVGSVGElement>>
   active?: boolean
   className?: string
@@ -30,7 +30,7 @@ function IconButton({
     <Component
       data-slot="icon-button"
       className={cn(
-        `group/icon-button cursor-pointer relative inline-flex shrink-0 rounded-full transition-colors hover:text-[var(--icon-ac)] ${active ? 'text-[var(--icon-ac)]' : 'text-[var(--icon-fg)]'}`,
+        `group/icon-button cursor-pointer relative inline-flex shrink-0 rounded-full transition-colors hover:text-(--icon-ac) ${active ? 'text-(--icon-ac)' : 'text-(--icon-fg)'}`,
         sizes[size],
         className
       )}

@@ -1,3 +1,4 @@
+/* eslint-disable import-x/no-duplicates -- ... */
 import { useAtom } from 'jotai';
 import { atomWithStorage } from 'jotai/utils';
 
