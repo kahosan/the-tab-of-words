@@ -12,33 +12,36 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "motion": "^12.23.5",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "swr": "^2.3.4"
+    "motion": "13.5.1",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "swr": "^2.5.1"
   },
   "devDependencies": {
-    "@eslint-sukka/react": "^6.22.1",
-    "@tailwindcss/vite": "^4.1.11",
-    "@types/node": "^24.0.14",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.6.0",
-    "@wxt-dev/module-react": "^1.1.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^26.6.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@wxt-dev/module-react": "^1.2.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "eslint": "^9.31.0",
-    "eslint-config-kaho": "^3.7.0",
-    "globals": "^16.3.0",
-    "jotai": "^2.12.5",
+    "eslint": "^10.12.0",
+    "eslint-config-kaho": "^5.0.1",
+    "foxact": "^0.3.12",
+    "jotai": "^3.0.1",
     "jotai-optics": "^0.4.0",
-    "lucide-react": "^0.525.0",
+    "lucide-react": "^1.51.0",
     "optics-ts": "^2.4.1",
-    "tailwind-merge": "^3.3.1",
-    "tailwindcss": "^4.1.11",
-    "tw-animate-css": "^1.3.5",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.3",
+    "tw-animate-css": "^1.4.0",
     "typescript": "~5.8.3",
-    "vite": "^7.0.4",
-    "wxt": "^0.20.7"
+    "vite": "^8.3.4",
+    "wxt": "^0.21.4"
+  },
+  "packageManager": "pnpm@12.10.1",
+  "engines": {
+    "node": "24.5.0"
   }
 }
